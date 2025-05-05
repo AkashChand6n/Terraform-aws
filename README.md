@@ -25,7 +25,7 @@ Follow the steps below to get started with the Terraform configurations:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/AkashChand6n/terraform-study-repo.git
+git clone https://github.com/AkashChand6n/Terraform-aws.git
 cd terraform-study-repo
 ```
 
