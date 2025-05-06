@@ -174,14 +174,14 @@ resource "aws_instance" "UST-A-Pub-Instance" {
     tags = {
         Name = "UST-A-Pub-Instance"
     }
-    # user_data = <<-EOF
-    #   #!/bin/bash
-    #   yum update -y
-    #   yum install -y httpd
-    #   systemctl start httpd
-    #   systemctl enable httpd
-    #   echo "<h1>Hello from UST-A-Pub-Instance</h1>" > /var/www/html/index.html
-    # EOF
+    user_data = <<-EOF
+      #!/bin/bash
+      yum update -y
+      yum install -y httpd
+      systemctl start httpd
+      systemctl enable httpd
+      echo "<h1>Hello from UST-A-Pub-Instance</h1>" > /var/www/html/index.html
+    EOF
   
 }
 
@@ -194,13 +194,28 @@ resource "aws_instance" "UST-A-Priv-Instance" {
     tags = {
         Name = "UST-A-Priv-Instance"
     }
-    # user_data = <<-EOF
-    #   #!/bin/bash
-    #   yum update -y
-    #   yum install -y httpd
-    #   systemctl start httpd
-    #   systemctl enable httpd
-    #   echo "<h1>Hello from UST-A-Priv-Instance</h1>" > /var/www/html/index.html
-    # EOF
+    user_data = <<-EOF
+      #!/bin/bash
+      yum update -y
+      yum install -y httpd
+      systemctl start httpd
+      systemctl enable httpd
+      echo "<h1>Hello from UST-A-Priv-Instance</h1>" > /var/www/html/index.html
+    EOF
   
+}
+
+# Outputs for the created resources
+output "Instance_ID" {
+  value = aws_instance.UST-A-Pub-Instance.id
+}
+output "Instance_ID_Priv" {
+  value = aws_instance.UST-A-Priv-Instance.id
+}
+
+output "Public_IP" {
+  value = aws_instance.UST-A-Pub-Instance.public_ip
+}
+output "private_IP" {
+  value = aws_instance.UST-A-Priv-Instance.private_ip
 }
