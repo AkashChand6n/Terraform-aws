@@ -137,8 +137,8 @@ resource "aws_network_acl" "UST-A-NACL" {
     ingress {
         rule_no    = 100
         protocol   = "-1"
-        from_port  = 22
-        to_port    = 22
+        from_port  = 0
+        to_port    = 0
         action     = "allow"
         cidr_block = "0.0.0.0/0"
         }
